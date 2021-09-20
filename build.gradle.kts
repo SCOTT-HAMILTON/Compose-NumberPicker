@@ -1,23 +1,14 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:4.1.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0")
-        classpath("com.vanniktech:gradle-maven-publish-plugin:0.15.1")
-    }
+plugins {
+    id("com.android.library")
+    id("common-config")
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
+android {
+    defaultConfig {
     }
 }
-
-task("clean", Delete::class) {
-    delete = setOf(rootProject.buildDir)
+dependencies {
+    implementations(Libs.AndroidX.main)
+    implementations(Libs.Compose.main)
+    implementation(Libs.material)
 }
